@@ -41,24 +41,25 @@ public class GPSHelper {
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY); // 정확한 위치 요청
         locationCallback = new LocationCallback() {
             @Override
-            public void onLocationResult(@NonNull LocationResult  locationResult) { // LocationCallback을 초기화하고 위치 업데이트가 생기면 listener에위치값을 전달해준다
+            public void onLocationResult(@NonNull LocationResult  locationResult) { // LocationCallback을 초기화하고 위치 업데이트가 생기면 listener에위치값을 전달해준다                  
                 super.onLocationResult(locationResult);
                 listener.onLocationResult(locationResult);
             }
         };
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(activity); // 안드로이드 앱에서 google play 서비스의 위치 제공자를 사용하도록 설정하는 부분이다
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(activity); // 안드로이드 앱에서 google play 서비스의 위치 제공자를 사용하도록 설정하는 부분이다                                  
         listener.onReady(); // onReady 함수를 사용해서 리스너가 준비됬다는걸 알려준다
     }
 
     public void start(){
-        if (checkGrantedPermission(Manifest.permission.ACCESS_FINE_LOCATION) && checkDeniedPermission(Manifest.permission.ACCESS_COARSE_LOCATION)){ // 위치권한이 있는지 확인한다
+        if (checkGrantedPermission(Manifest.permission.ACCESS_FINE_LOCATION) && checkDeniedPermission(Manifest.permission.ACCESS_COARSE_LOCATION)){ // 위치권한이 있는지 확인한다                                          
             return;
         }
-        fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper()); // prepareGPS에서 설정한 옵션을 받아서 fusedLocationProviderClient를 이용해서 requestLocationUpdates메서드를호출하여 위치를 업데이트한다
+        fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper()); 
+        // prepareGPS에서 설정한 옵션을 받아서 fusedLocationProviderClient를 이용해서 requestLocationUpdates메서드를호출하여 위치를 업데이트한다                                                 
     }
 
     public void stop(){
-        fusedLocationProviderClient.removeLocationUpdates(locationCallback);
+        fusedLocationProviderClient.removeLocationUpdates(locationCallback); // 앱이 더이상 위치정보를 필요로 하지않을때 위치업데이트를 멈추는메서드                                                           
     }
 
     private boolean checkGrantedPermission(String permisson){
