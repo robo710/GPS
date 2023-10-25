@@ -25,20 +25,19 @@ public class GPSHelper {
 
     interface GPSHelperLister{
         void onReady();
-
         void onLocationResult(LocationResult locationResult);
     }
 
-    public GPSHelper(Activity activity){
+    public GPSHelper(Activity activity){ 
         this.activity = activity;
-        checkAndPermissionRequest();
+        checkAndPermissionRequest(); // Activity를 인자로받고 그 Activity의 gps권한을 확인하고 요청하는 코드
     }
 
     public void prepareGPS(GPSHelperLister listener){
         this.listener = listener;
-        locationRequest = com.google.android.gms.location.LocationRequest.create();
-        locationRequest.setInterval(1000);
-        locationRequest.setFastestInterval(500);
+        locationRequest = com.google.android.gms.location.LocationRequest.create(); // 구글의 gps서비스를 이용하기위해 locationRequest 객체를 생성하고 할당한다
+        locationRequest.setInterval(1000); // gps 업데이트 가장 느린간격을 설정해줌 단위는 ms
+        locationRequest.setFastestInterval(500); // gps 업데이트 가장 빠른간녁을 설정해줌 단위는 ms
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY); // 정확한 위치 요청
         locationCallback = new LocationCallback() {
             @Override
