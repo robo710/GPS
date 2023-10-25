@@ -1,13 +1,16 @@
 package com.sonchan.gps;
 
+import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.Manifest;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.location.LocationResult;
 
@@ -54,6 +57,8 @@ public class MainActivity  extends AppCompatActivity {
                 }
             }
         };
+
+        prepareGPSHelper(gpsHelperLister);
     }
 
     private float floatMpsToFloatKph(float mps){
@@ -61,7 +66,31 @@ public class MainActivity  extends AppCompatActivity {
     }
 
     private int floatMpsToIntKph(float mps){
-        return Integer.
+        return Integer.parseInt(String.valueOf(Math.round(mps*3600/1000)));
+    }
+
+    private int doubleToIntegerX100(double d){
+        return Integer.parseInt(String.valueOf(Math.round(d*100)));
+    }
+
+    private void prepareGPSHelper(GPSHelper.GPSHelperLister lister){
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+            if(lister != null){
+                gpsHelper.prepareGPS(lister);
+            }
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        try {
+            gpsHelper.stop();
+            gpsHelper = null;
+            gpsHelperLister = null;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -71,8 +100,8 @@ public class MainActivity  extends AppCompatActivity {
         if(requestCode == 1){
             if(grantResults.length > 0){
                 for(int grantResult : grantResults){
-                    if(grantResults == PackageManager.PERMISSION_GRANTED){
-
+                    if(grantResult == PackageManager.PERMISSION_GRANTED){
+                        prepareGPSHelper(gpsHelperLister);
                     }
                 }
             }
