@@ -21,10 +21,9 @@ public class MainActivity  extends AppCompatActivity {
     GPSHelper gpsHelper; 
     GPSHelper.GPSHelperLister gpsHelperLister;
 
-    protected void OnCreate(Bundle savedInstanceState){ // Activity가 생성됐을때 위의 TextView, PrograssBar 을 
+    protected void OnCreate(Bundle savedInstanceState){ // Activity가 생성됐을때 activity_main.xml파일에서 위의 TextView, PrograssBar같은 ui 요소를 변수에 연결해준다
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         speed_tv = findViewById(R.id.speed_tv);
         speedProgress_pb = findViewById(R.id.speedProgress_pb);
         longitude_pb = findViewById(R.id.longitude_pb);
@@ -32,7 +31,7 @@ public class MainActivity  extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume() { // Activity가 정지후 다시 시작할때 GPSHelper클래스를 초기화하고 GPSHelperListner를 구현한다
         super.onResume();
         gpsHelper = new GPSHelper(this);
         gpsHelperLister = new GPSHelper.GPSHelperLister() {
@@ -42,7 +41,7 @@ public class MainActivity  extends AppCompatActivity {
             }
 
             @Override
-            public void onLocationResult(LocationResult locationResult) {
+            public void onLocationResult(LocationResult locationResult) { // 기기의 위치정보들을 activity_main.xml의 ui요소들에 표시한다
                 if(locationResult != null){
                     for(Location location : locationResult.getLocations()){
                         try {
@@ -57,23 +56,22 @@ public class MainActivity  extends AppCompatActivity {
                 }
             }
         };
-
         prepareGPSHelper(gpsHelperLister);
     }
 
-    private float floatMpsToFloatKph(float mps){
+    private float floatMpsToFloatKph(float mps){ // GooglePlay가 재공한 M/S를 M/h로 바꿔서 return해준다 
         return Float.valueOf(String.format("%.1f", mps*3600/1000));
     }
 
-    private int floatMpsToIntKph(float mps){
+    private int floatMpsToIntKph(float mps){ // GooglePlay가 재공한 M/S를 M/h 그리고 정수로 바꿔서 return해준다 
         return Integer.parseInt(String.valueOf(Math.round(mps*3600/1000)));
     }
 
-    private int doubleToIntegerX100(double d){
+    private int doubleToIntegerX100(double d){ // double 형식의 데이터에 100을 곱하고 정수로 바꿔서 return해준다
         return Integer.parseInt(String.valueOf(Math.round(d*100)));
     }
 
-    private void prepareGPSHelper(GPSHelper.GPSHelperLister lister){
+    private void prepareGPSHelper(GPSHelper.GPSHelperLister lister){ // 
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
             if(lister != null){
                 gpsHelper.prepareGPS(lister);
