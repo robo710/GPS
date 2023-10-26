@@ -62,15 +62,15 @@ public class GPSHelper {
         fusedLocationProviderClient.removeLocationUpdates(locationCallback); // 앱이 더이상 위치정보를 필요로 하지않을때 위치업데이트를 멈추는메서드                                                           
     }
 
-    private boolean checkGrantedPermission(String permisson){
+    private boolean checkGrantedPermission(String permisson){ // ActivityCompat.checkSelfPermission 메서드를 사용하여 권한을 확인한다
         return ActivityCompat.checkSelfPermission(activity, permisson) == PackageManager.PERMISSION_GRANTED;
     }
 
-    private boolean checkDeniedPermission(String permisson){
+    private boolean checkDeniedPermission(String permisson){ // ActivityCompat.checkSelfPermission 메서드를 사용하여 권한이 거부당했는지 확인한다
         return ActivityCompat.checkSelfPermission(activity, permisson) == PackageManager.PERMISSION_DENIED;
     }
 
-    private void checkAndPermissionRequest() {
+    private void checkAndPermissionRequest() { // 위치 접근권한을 확인하고 권한이 없으면 사용자에게 권한을 요청하는 메서드
         int permissonCheck = ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION);
 
         if (permissonCheck != PackageManager.PERMISSION_GRANTED) {
