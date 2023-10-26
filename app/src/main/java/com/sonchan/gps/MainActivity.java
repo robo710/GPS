@@ -21,7 +21,7 @@ public class MainActivity  extends AppCompatActivity {
     GPSHelper gpsHelper; 
     GPSHelper.GPSHelperLister gpsHelperLister;
 
-    protected void OnCreate(Bundle savedInstanceState){
+    protected void OnCreate(Bundle savedInstanceState){ // Activity가 생성됐을때 위의 TextView, PrograssBar 을 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
