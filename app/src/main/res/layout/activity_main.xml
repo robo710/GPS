@@ -25,7 +25,7 @@
             android:progressBackgroundTint="#9F76FF"
             android:progressTint="#592CC1"
             android:max="400"
-            android:progress="100"/>
+            android:progress="100"/> // 현재 속도 PrograssBar
         
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,7 +58,7 @@
         app:layout_constraintStart_toStartOf="@id/frameLayout"
         app:layout_constraintEnd_toEndOf="@id/frameLayout"
         app:layout_constraintTop_toTopOf="@id/frameLayout"
-        app:layout_constraintBottom_toBottomOf="@id/frameLayout"/>
+        app:layout_constraintBottom_toBottomOf="@id/frameLayout"/> // 현재 속도 TextView
     
     <TextView
         android:id="@+id/speedUnit_tv"
@@ -68,7 +68,7 @@
         android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/speed_tv"
-        app:layout_constraintBottom_toBottomOf="@id/speed_tv"/>
+        app:layout_constraintBottom_toBottomOf="@id/speed_tv"/> // 속도 단위
     
     <ProgressBar
         android:id="@+id/longitude_pb"
