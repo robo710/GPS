@@ -16,9 +16,9 @@ import com.google.android.gms.location.LocationResult;
 
 public class MainActivity  extends AppCompatActivity {
 
-    TextView speed_tv;
-    ProgressBar speedProgress_pb, longitude_pb, latitude_pb;
-    GPSHelper gpsHelper;
+    TextView speed_tv; // 현재속도를 보여주는 TextView
+    ProgressBar speedProgress_pb, longitude_pb, latitude_pb; // 현재속도 speedProgress_pb, 현재위도 longitude_pb, 현재경도latitude_pb
+    GPSHelper gpsHelper; 
     GPSHelper.GPSHelperLister gpsHelperLister;
 
     protected void OnCreate(Bundle savedInstanceState){
