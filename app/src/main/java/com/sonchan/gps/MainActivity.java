@@ -1,32 +1,27 @@
 package com.sonchan.gps;
 
-import android.content.Intent;
+import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.Manifest;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.location.LocationResult;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity  extends AppCompatActivity {
 
     TextView speed_tv;
     ProgressBar speedProgress_pb, longitude_pb, latitude_pb;
     GPSHelper gpsHelper;
     GPSHelper.GPSHelperLister gpsHelperLister;
-    Button map_btn;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void OnCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -34,15 +29,6 @@ public class MainActivity extends AppCompatActivity {
         speedProgress_pb = findViewById(R.id.speedProgress_pb);
         longitude_pb = findViewById(R.id.longitude_pb);
         latitude_pb = findViewById(R.id.latitude_pb);
-        map_btn = findViewById(R.id.map_btn);
-
-        map_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
