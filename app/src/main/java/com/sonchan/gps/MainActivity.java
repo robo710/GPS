@@ -71,7 +71,7 @@ public class MainActivity  extends AppCompatActivity {
         return Integer.parseInt(String.valueOf(Math.round(d*100)));
     }
 
-    private void prepareGPSHelper(GPSHelper.GPSHelperLister lister){ // 
+    private void prepareGPSHelper(GPSHelper.GPSHelperLister lister){ //
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
             if(lister != null){
                 gpsHelper.prepareGPS(lister);
@@ -80,7 +80,7 @@ public class MainActivity  extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {
+    protected void onPause() { // Activity가 정지됐을때 GPS추적을 멈추고 초기화한다
         super.onPause();
         try {
             gpsHelper.stop();
@@ -92,7 +92,7 @@ public class MainActivity  extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) { //
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if(requestCode == 1){
