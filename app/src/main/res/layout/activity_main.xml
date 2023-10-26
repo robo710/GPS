@@ -85,7 +85,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/latitude_pb"
         app:layout_constraintTop_toBottomOf="@id/speed_tv"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"/> // 현재 위도 PrograssBar
 
     <ProgressBar
         android:id="@+id/latitude_pb"
@@ -100,7 +100,7 @@
         app:layout_constraintStart_toEndOf="@id/longitude_pb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/longitude_pb"
-        app:layout_constraintBottom_toBottomOf="@id/longitude_pb"/>
+        app:layout_constraintBottom_toBottomOf="@id/longitude_pb"/> // 현재 경도 PrograssBar
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
