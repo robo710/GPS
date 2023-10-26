@@ -17,11 +17,11 @@ import com.google.android.gms.location.LocationResult;
 public class MainActivity  extends AppCompatActivity {
 
     TextView speed_tv; // 현재속도를 보여주는 TextView
-    ProgressBar speedProgress_pb, longitude_pb, latitude_pb; // 현재속도 speedProgress_pb, 현재위도 longitude_pb, 현재경도latitude_pb
+    ProgressBar speedProgress_pb, longitude_pb, latitude_pb; // 현재속도 speedProgress_pb, 현재위도 longitude_pb, 현재경도 latitude_pb
     GPSHelper gpsHelper; 
     GPSHelper.GPSHelperLister gpsHelperLister;
 
-    protected void OnCreate(Bundle savedInstanceState){ // Activity가 생성됐을때 activity_main.xml파일에서 위의 TextView, PrograssBar같은 ui 요소를 변수에 연결해준다
+    protected void OnCreate(Bundle savedInstanceState){ // Activity가 생성됐을때 activity_main.xml파일에서 위의 TextView, PrograssBar같은 ui요소를 변수에 연결해준다
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         speed_tv = findViewById(R.id.speed_tv);
