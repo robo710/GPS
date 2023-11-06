@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId = "com.sonchan.gps"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -40,6 +40,9 @@ android {
     buildFeatures {
         viewBinding = true
         compose = true
+    }
+    dataBinding{
+        enable = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"

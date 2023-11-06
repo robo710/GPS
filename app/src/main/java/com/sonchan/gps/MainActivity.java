@@ -1,14 +1,18 @@
 package com.sonchan.gps;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.Manifest;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -21,7 +25,10 @@ public class MainActivity  extends AppCompatActivity {
     GPSHelper gpsHelper;
     GPSHelper.GPSHelperLister gpsHelperLister;
 
-    protected void OnCreate(Bundle savedInstanceState){
+    public static final int sub = 1001;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
