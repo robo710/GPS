@@ -2,6 +2,14 @@ package com.sonchan.gps
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.location.Location
+import android.location.LocationManager
+import android.location.LocationRequest
+import android.provider.CallLog.Locations
+import android.util.Log
+import androidx.core.location.LocationCompat
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.LocationServices
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -40,9 +48,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+//        val location:Location = LocationResult
+//        Log.d("로그", "${location.latitude}")
 
         // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
+        val sydney = LatLng(35.15972, 126.85306)
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
