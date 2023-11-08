@@ -102,15 +102,5 @@
         app:layout_constraintTop_toTopOf="@id/longitude_pb"
         app:layout_constraintBottom_toBottomOf="@id/longitude_pb"/> // 현재 경도 PrograssBar
 
-    <Button
-        android:id="@+id/map_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="버튼"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
