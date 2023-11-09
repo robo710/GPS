@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,8 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GPS"
-        tools:targetApi="31"
-        android:usesCleartextTraffic="true"><!--데이터가 http기반이라 http사용을 위한 -->
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".Weather"
+            android:exported="false" />
+        <!-- 데이터가 http기반이라 http사용을 위한 -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -27,6 +32,5 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" /> <!--인터넷 권한-->
 
 </manifest>

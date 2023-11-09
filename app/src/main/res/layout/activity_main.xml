@@ -25,7 +25,7 @@
             android:progressBackgroundTint="#9F76FF"
             android:progressTint="#592CC1"
             android:max="400"
-            android:progress="100"/> // 현재 속도 PrograssBar
+            android:progress="100"/> <!--현재 속도 PrograssBar-->
         
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,7 +58,7 @@
         app:layout_constraintStart_toStartOf="@id/frameLayout"
         app:layout_constraintEnd_toEndOf="@id/frameLayout"
         app:layout_constraintTop_toTopOf="@id/frameLayout"
-        app:layout_constraintBottom_toBottomOf="@id/frameLayout"/> // 현재 속도 TextView
+        app:layout_constraintBottom_toBottomOf="@id/frameLayout"/> <!--현재 속도 TextView-->
     
     <TextView
         android:id="@+id/speedUnit_tv"
@@ -68,7 +68,7 @@
         android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/speed_tv"
-        app:layout_constraintBottom_toBottomOf="@id/speed_tv"/> // 속도 단위
+        app:layout_constraintBottom_toBottomOf="@id/speed_tv"/> <!--속도 단위-->
     
     <ProgressBar
         android:id="@+id/longitude_pb"
@@ -85,7 +85,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/latitude_pb"
         app:layout_constraintTop_toBottomOf="@id/speed_tv"
-        app:layout_constraintBottom_toBottomOf="parent"/> // 현재 위도 PrograssBar
+        app:layout_constraintBottom_toBottomOf="parent"/> <!--현재 위도 PrograssBar-->
 
     <ProgressBar
         android:id="@+id/latitude_pb"
@@ -100,7 +100,17 @@
         app:layout_constraintStart_toEndOf="@id/longitude_pb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/longitude_pb"
-        app:layout_constraintBottom_toBottomOf="@id/longitude_pb"/> // 현재 경도 PrograssBar
+        app:layout_constraintBottom_toBottomOf="@id/longitude_pb"/> <!--현재 경도 PrograssBar-->
 
+    <Button
+        android:id="@+id/weather_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="날씨"
+        android:background="#000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
