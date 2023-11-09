@@ -1,4 +1,4 @@
-package com.sonchan.gps;
+package com.sonchan.gps.data;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;
@@ -23,7 +23,7 @@ public class GPSHelper {
     private FusedLocationProviderClient fusedLocationProviderClient; // 위치 확인 실행
     private GPSHelperLister listener;
 
-    interface GPSHelperLister{
+    public interface GPSHelperLister{
         void onReady();
         void onLocationResult(LocationResult locationResult);
     }
