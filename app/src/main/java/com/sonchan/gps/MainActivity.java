@@ -24,7 +24,6 @@ public class MainActivity  extends AppCompatActivity {
     ProgressBar speedProgress_pb, longitude_pb, latitude_pb;
     GPSHelper gpsHelper;
     GPSHelper.GPSHelperLister gpsHelperLister;
-    Button map_btn;
 
     public static final int sub = 1001;
 
@@ -37,15 +36,6 @@ public class MainActivity  extends AppCompatActivity {
         speedProgress_pb = findViewById(R.id.speedProgress_pb);
         longitude_pb = findViewById(R.id.longitude_pb);
         latitude_pb = findViewById(R.id.latitude_pb);
-        map_btn = findViewById(R.id.map_btn);
-
-        map_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
-                startActivityForResult(intent, sub);
-            }
-        });
     }
 
     @Override
