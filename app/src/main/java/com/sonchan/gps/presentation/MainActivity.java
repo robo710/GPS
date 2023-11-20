@@ -25,7 +25,6 @@ public class MainActivity  extends AppCompatActivity {
     ProgressBar speedProgress_pb, longitude_pb, latitude_pb;
     GPSHelper gpsHelper;
     GPSHelper.GPSHelperLister gpsHelperLister;
-    Button weather_btn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,14 +35,6 @@ public class MainActivity  extends AppCompatActivity {
         speedProgress_pb = findViewById(R.id.speedProgress_pb);
         longitude_pb = findViewById(R.id.longitude_pb);
         latitude_pb = findViewById(R.id.latitude_pb);
-        weather_btn = (Button) findViewById(R.id.weather_btn);
-
-        weather_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
 
     @Override
