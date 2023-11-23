@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/speed"
+        android:title="문혜성"/>
+
+    <item
+        android:id="@+id/map"
+        android:title="고먐미"/>
+
+    <item
+        android:id="@+id/weather"
+        android:title="계산기"/>
+
+
+</menu>
