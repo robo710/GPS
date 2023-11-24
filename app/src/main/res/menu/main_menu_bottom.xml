@@ -3,15 +3,18 @@
 
     <item
         android:id="@+id/speed"
-        android:title="문혜성"/>
+        android:enabled="true"
+        android:title="속도"/>
 
     <item
-        android:id="@+id/map"
-        android:title="고먐미"/>
+        android:id="@+id/popcat_item"
+        android:enabled="true"
+        android:title="PopCat"/>
 
     <item
-        android:id="@+id/weather"
-        android:title="계산기"/>
+        android:id="@+id/manbo"
+        android:enabled="true"
+        android:title="만보기"/>
 
 
 </menu>
